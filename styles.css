@@ -1,0 +1,146 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+:root{
+    /*Primary*/
+    --Green-500: hsl(158, 36%, 37%);
+    --Green-700: hsl(158, 42%, 18%);
+    /*Neutral*/
+    --Black: hsl(212, 21%, 14%);
+    --Grey: hsl(228, 12%, 48%);
+    --Cream: hsl(30, 38%, 92%);
+    --White: hsl(0, 0%, 100%);
+    /*Font-Family and Weights*/
+    --montserrat:"Montserrat", serif;
+    --fraunces:"Fraunces", sans-serif;
+    --weight-500:500;
+    --weight-700:700;
+}
+
+body{
+    background:var(--Cream);
+    color:var(--Grey);
+    font-family: var(--montserrat);
+    font-size: 0.875rem;
+    font-weight: var(--weight-500);
+    display: grid;
+    place-content:center;
+    margin:1rem;
+    min-height: 100vh;
+}
+.product{
+    background: var(--White);
+    overflow: hidden;
+    border-radius: 0.5rem;
+    display:flex;
+    flex-direction: column;
+    max-width: 600px;
+    
+}
+@media(min-width:600px){
+    .product{
+        flex-direction: row;
+    }
+}
+.product__content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+.product__category{
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-size: 0.8rem;
+}
+.product__title{
+    font-family: var(--fraunces);
+    font-size: 2rem;
+    font-weight: var(--weight-700);
+    color: var(--Black);
+    line-height: 1;
+}
+.flex-group{
+    display: inline-flex;
+    align-items: center;
+    gap:1rem;
+}
+.product__price{
+    font-family: var(--fraunces);
+    font-size: 2rem;
+    font-weight: var(--weight-700);
+    color: var(--Green-500);
+}
+.product__price-before{
+    text-decoration: line-through;
+}
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--Green-500);
+  color: var(--White);
+  font-weight: var(--weight-700);
+  font-size: 0.925rem;
+}
+button:is(:hover, :focus){
+    background-color: var(--Green-700);
+}
